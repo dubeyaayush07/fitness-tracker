@@ -1,0 +1,21 @@
+<% include ./partials/header %>
+
+<div class="auth-container">
+    <div>
+        <h1>Register</h1>
+    </div>
+    <form action="/register" method="POST" class="auth-form">
+        <div>
+            <label for="username">Username</label>
+            <input class="form-element" id="username" type="text" name="username">
+        </div>
+        <div>
+            <label for="password">Password</label>
+            <input class="form-element" id="password" type="password" name="password">
+        </div>
+        <div class="button-div">
+            <button class="form-element">Submit</button>
+        </div>
+    </form>
+
+    <% include ./partials/footer %>

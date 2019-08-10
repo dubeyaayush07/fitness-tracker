@@ -1,0 +1,45 @@
+<% include ./partials/header %>
+
+<div class="container">
+    <form action="/exercise-logs" method="POST" class="log-form">
+        <div>
+            <label for="type">Type</label>
+            <select class="form-element" id="type" name="log[type]">
+                <option value="running">Running</option>
+                <option value="cycling">Cycling</option>
+                <option value="swimming">Swimming</option>
+            </select>
+        </div>
+        <div>
+            <label for="minutes">Minutes</label>
+            <input class="form-element" id="minutes" type="number" name="log[minutes]">
+        </div>
+        <div>
+            <label for="calories">Calories</label>
+            <input class="form-element" id="calories" type="number" name="log[calories]">
+        </div>
+        <div>
+            <label for="heart-rate">Heart rate</label>
+            <input class="form-element" id="heart-rate" type="number" name="log[heart_rate]">
+        </div>
+        <div class="button-div">
+            <button class="form-element">Submit</button>
+        </div>
+
+    </form>
+    <div class="verticalLine">
+    </div>
+    <div id="svg-area">
+        <div class="plot-options">
+            <select class="plot-option" id="plot-attributes">
+                <option value="minutes">Minutes</option>
+                <option value="calories">Calories</option>
+                <option value="heart_rate">Heart rate</option>
+            </select>
+            <button class="plot-option" id="plot-button">Plot</button>
+        </div>
+    </div>
+</div>
+
+
+<% include ./partials/footer %>
