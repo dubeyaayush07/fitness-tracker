@@ -78,6 +78,6 @@ app.use((req,res,next) => {
 app.use(routes);
 
 
-app.listen(PORT, () => {
+app.listen(process.env.PORT, () => {
     console.log(`Application is running on port ${PORT}.`);
 });
