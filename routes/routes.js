@@ -4,12 +4,17 @@ const middleware = require("../middleware");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const Pool = require("pg").Pool;
+// const pool = new Pool({
+//     user: 'me',
+//     host: 'localhost',
+//     database: 'api',
+//     password: process.env.DB_SECRET,
+//     port: 5432,
+// });
+
 const pool = new Pool({
-    user: 'me',
-    host: 'localhost',
-    database: 'api',
-    password: process.env.DB_SECRET,
-    port: 5432,
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
 });
 
 

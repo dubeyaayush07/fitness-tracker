@@ -9,13 +9,21 @@ const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
 const bcrypt = require("bcrypt");
 const Pool = require("pg").Pool;
+
+
+
+// const pool = new Pool({
+//     user: 'me',
+//     host: 'localhost',
+//     database: 'api',
+//     password: process.env.DB_SECRET,
+//     port: 5432,
+// })
+
 const pool = new Pool({
-    user: 'me',
-    host: 'localhost',
-    database: 'api',
-    password: process.env.DB_SECRET,
-    port: 5432,
-})
+    connectionString: process.env.DATABASE_URL,
+    ssl: true
+});
 
 const routes = require("./routes/routes");
 
@@ -71,10 +79,10 @@ passport.deserializeUser((id, done) => {
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use((req,res,next) => {
+app.use((req, res, next) => {
     res.locals.currentUser = req.user;
     next();
- });
+});
 app.use(routes);
 
 
