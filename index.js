@@ -16,7 +16,7 @@ const pool = new Pool({
     password: process.env.DB_SECRET,
     port: 5432,
 })
-const PORT = 3000;
+
 const routes = require("./routes/routes");
 
 // configure the app
@@ -79,5 +79,5 @@ app.use(routes);
 
 
 app.listen(process.env.PORT, () => {
-    console.log(`Application is running on port ${PORT}.`);
+    console.log(`Application is running`);
 });
